@@ -1,0 +1,17 @@
+let numbers = ""
+let len = numbers.strlen()
+fn rec(index: Int) -> Int {
+  if index < len {
+    let char = numbers.charAt(index)
+    let next = numbers.charAt((index + 1) % len)
+    (if char == next {
+      char.toInt() - '0'.toInt()
+    } else {
+      0
+    }) + rec(index + 1)
+  } else {
+    0
+  }
+}
+
+print(rec(0))
